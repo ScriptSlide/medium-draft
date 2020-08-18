@@ -33,6 +33,7 @@ class ImageBlock extends React.Component {
     const { blockProps, block } = this.props;
     const data = block.getData();
     const src = data.get('src');
+    const onLoad = data.get('onLoad');
     const showPlaceholder = block.getLength() === 0 && blockProps.placeholder;
 
     if (src !== null) {
@@ -46,7 +47,7 @@ class ImageBlock extends React.Component {
       return (
         <div>
           <div className="md-block-image-inner-container" onClick={this.focusBlock}>
-            <img role="presentation" src={src} />
+            <img role="presentation" src={src} onLoad={onLoad} />
           </div>
           <figcaption {...extraProps}>
             <EditorBlock {...this.props} />
